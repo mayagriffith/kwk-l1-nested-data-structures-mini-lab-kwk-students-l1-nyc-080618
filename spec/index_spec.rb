@@ -14,6 +14,7 @@ ingr_small = [
   ["rye", "sourdough", "baguette"],
 ]
 
+
 ingr_large = [
   ["rye", "sourdough", "baguette"],
   ["ham", "salami", "turkey"],
@@ -28,6 +29,10 @@ describe "sandwich_request" do
     result = sandwich_request(ingr_def, ["sourdough", "turkey", "swiss", "mustard"])
     expect(result).to eq(true), "make sure you check all arrays for each order ingredient!"
   end
+  ingr_def[0][1]
+  ingr_def[1][2]
+  ingr_def[2][0]
+  ingr_def[3][1]
 
   it "returns true if all order ingredients are found, even if requested out of order" do
     result = sandwich_request(ingr_def, ["turkey", "sourdough", "swiss", "mustard"])
@@ -43,7 +48,10 @@ describe "sandwich_request" do
     result = sandwich_request(ingr_small, ["sourdough", "swiss", "mustard"])
     expect(result).to eq(true), "make sure you check all arrays for each order ingredient!"
   end
-  
+    ingr_small[0][1]
+    ingr_small[1][0]
+    ingr_small[2][1]
+
   it 'returns true if all ingredients are found with a larger ingredient array' do
     result = sandwich_request(ingr_large, ["turkey", "sourdough", "swiss", "mustard"])
     expect(result).to eq(true), "make sure you iterate through all arrays, no matter how large the provided `ingredients` array is"
